@@ -69,9 +69,9 @@ const loginUser = asyncHandler(async (req, res) => {
 });
 
 // @desc    Register New User
-// @route   POST /api/users/user
-// @access  Public
-const getUser = asyncHandler(async (req, res) => {});
+// @route   POST /api/users/me
+// @access  Private
+const getMe = asyncHandler(async (req, res) => {});
 
 //  Genereate JWT
 const generateToken = (id) => {
@@ -79,4 +79,4 @@ const generateToken = (id) => {
 };
 
 // export modules
-module.exports = { registerUser, loginUser, getUser };
+module.exports = { registerUser, loginUser, getMe };
