@@ -8,15 +8,14 @@ import logo from "../assests/logo.svg";
 function Header() {
   return (
     <header>
-      
-      <Navbar bg="light" top="fixed" expand="md" className="px-5">
-          <LinkContainer to="/">
-            <NavbarBrand>
-              <Image src={logo} alt="Logo" />
-            </NavbarBrand>
-          </LinkContainer>
-          <Navbar.Toggle />
-          <Navbar.Collapse>
+      <Navbar bg="light" top="fixed" expand="md" className="px-5 border-0">
+        <LinkContainer to="/">
+          <NavbarBrand>
+            <Image src={logo} alt="Logo" />
+          </NavbarBrand>
+        </LinkContainer>
+        <Navbar.Toggle />
+        <Navbar.Collapse>
           <Nav className="ms-auto">
             <LinkContainer to="/">
               <Nav.Link>Home</Nav.Link>
@@ -28,9 +27,8 @@ function Header() {
               <Nav.Link>Contact</Nav.Link>
             </LinkContainer>
           </Nav>
-          </Navbar.Collapse>
+        </Navbar.Collapse>
       </Navbar>
-     
     </header>
   );
 }
