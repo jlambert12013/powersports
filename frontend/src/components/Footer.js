@@ -10,7 +10,7 @@ import logo from "../assests/logo.svg";
 function Footer() {
   return (
     <>
-      <footer className="bd-footer px-5 mt-5 bg-light">
+      <footer className="bd-footer px-5 mt-2 bg-light">
         <Container>
           <Row className="text-center py-5">
             <Col
