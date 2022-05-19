@@ -18,16 +18,16 @@ app.use(express.static(publicRoot));
 app.use("/css", express.static(publicRoot));
 
 //	Multer
-const multer = require("multer");
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "images");
-  },
-  filename: (req, file, cd) => {
-    cd(null, Date.now() + path.extname(file.originalname));
-  },
-});
-const upload = multer({ storage: storage });
+// const multer = require("multer");
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, "images");
+//   },
+//   filename: (req, file, cd) => {
+//     cd(null, Date.now() + path.extname(file.originalname));
+//   },
+// });
+// const upload = multer({ storage: storage });
 
 //  Error
 const errorHandler = require("./middleware/errorHandler");
@@ -42,6 +42,8 @@ mongo(URI);
 
 // Routes
 app.use("/api/catalog", require("./routes/api/catalogRoute"));
+app.use("/api/users", require("./routes/api/userRoute"));
+
 app.use(errorHandler);
 
 // Server

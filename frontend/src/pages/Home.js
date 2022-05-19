@@ -8,18 +8,20 @@ function Home() {
   const fetchProducts = async () => {
     await fetch("http://localhost:5000/api/catalog")
       .then((res) => res.json())
-      .then((data) => data);
+      .then((data) => setProducts(data));
   };
 
   useEffect(() => {
     fetchProducts();
-    setProducts();
   }, []);
 
   return (
     <>
       <ProductSlider />
       <Intimidator />
+      {products.map((product) => {
+        return <>{product.model} </>;
+      })}
     </>
   );
 }

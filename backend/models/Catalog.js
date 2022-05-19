@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 
 const Catalog = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "User",
+  },
   condition: {
     type: String,
     enum: ["New", "Preowned", "Demo"],
