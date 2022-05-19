@@ -12,7 +12,7 @@ function Intimidator() {
   return (
     <>
       <Container fluid style={{ maxWidth: 2000 }}>
-        <Row>
+        <Row className="intimidator">
           {images.map((image) => {
             return (
               <Col md={4} className="g-4">
@@ -22,8 +22,9 @@ function Intimidator() {
           })}
         </Row>
         <Row>
-          <Col>
-            <p>
+          <Col className="text-center mt-4 my-4">
+            <h1>Work. Hunt. Play.</h1>
+            <h4 className="text-muted">
               We are Intimidator. We strive to build the most comfortable,
               durable, and rugged UTV on the market. We build them at our
               headquarters in Batesville, Arkansas with our crew of hardworking
@@ -31,7 +32,7 @@ function Intimidator() {
               a unit to fit any needs. Choose from our ever-growing list of
               accessories from our sister company Bad Dawg Accessories to create
               your custom Intimidator.
-            </p>
+            </h4>
           </Col>
         </Row>
       </Container>

@@ -1,9 +1,17 @@
-@import url("http://fonts.cdnfonts.com/css/montserrat");
+@import url("http://fonts.cdnfonts.com/css/montserrat?styles=17395,17389");
 
 * {
   font-family: "Montserrat", sans-serif;
 }
 
-.intimidator-img {
-  display: none;
+h4 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 275;
+  font-size: 1rem;
+}
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
 }
