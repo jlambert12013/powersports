@@ -8,7 +8,7 @@ import logo from "../assests/logo.svg";
 function Header() {
   return (
     <header>
-      <Navbar bg="light" top="fixed" expand="md" className="px-5 border-0">
+      <Navbar bg="light" fixed="top" expand="md" className="px-5 border-0">
         <LinkContainer to="/">
           <NavbarBrand>
             <Image src={logo} alt="Logo" />

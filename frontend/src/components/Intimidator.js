@@ -23,8 +23,8 @@ function Intimidator() {
         </Row>
         <Row>
           <Col className="text-center mt-4 my-4">
-            <h1>Work. Hunt. Play.</h1>
-            <h4 className="text-muted">
+            <h1 className="md-3 display-5">Work. Hunt. Play.</h1>
+            <h4 className="text-muted lh-lg px-1">
               We are Intimidator. We strive to build the most comfortable,
               durable, and rugged UTV on the market. We build them at our
               headquarters in Batesville, Arkansas with our crew of hardworking

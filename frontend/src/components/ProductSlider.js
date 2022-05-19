@@ -9,19 +9,9 @@ import slide3 from "../assests/intimidator/slide3.jpg";
 function ProductSlider() {
   let slides = [slide1, slide2, slide3];
 
-  const [index, setIndex] = useState(0);
-
-  const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-  };
-
   return (
     <>
-      <Carousel
-        className="d-flex justify-content-center align-center"
-        activeIndex={index}
-        onSelect={handleSelect}
-      >
+      <Carousel className="d-flex justify-content-center align-center">
         {slides.map((item) => {
           return (
             <CarouselItem className="d-flex justify-content-center align-center">

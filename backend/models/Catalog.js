@@ -26,6 +26,10 @@ const Catalog = new mongoose.Schema({
     maxlength: 25,
     required: true,
   },
+  image: {
+    type: String,
+    require: true,
+  },
   model: {
     type: String,
     maxlength: 25,

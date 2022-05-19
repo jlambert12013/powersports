@@ -16,6 +16,7 @@ const createListing = asyncHandler(async (req, res) => {
     model: req.body.model,
     year: req.body.year,
     price: req.body.price,
+    image: req.body.image,
     features: req.body.features,
     description: req.body.description,
     inStock: req.body.inStock,
