@@ -1,28 +1,28 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose')
 
 const Catalog = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
-    ref: "User",
+    ref: 'User',
   },
   condition: {
     type: String,
-    enum: ["New", "Preowned", "Demo"],
+    enum: ['New', 'Preowned', 'Demo'],
     required: true,
   },
   type: {
     type: String,
     enum: [
-      "All Terrain Vehicle",
-      "Amphibious Vehicle",
-      "Automobile",
-      "Dirt Bike",
-      "Go Kart",
-      "Golf Kart",
-      "Lawn Mower",
-      "Motorcycle",
-      "Utility Vehicle",
+      'All Terrain Vehicle',
+      'Amphibious Vehicle',
+      'Automobile',
+      'Dirt Bike',
+      'Go Kart',
+      'Golf Kart',
+      'Lawn Mower',
+      'Motorcycle',
+      'Utility Vehicle',
     ],
     required: true,
   },
@@ -70,6 +70,6 @@ const Catalog = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-});
+})
 
-module.exports = mongoose.model("Catalog", Catalog);
+module.exports = mongoose.model('Catalog', Catalog)

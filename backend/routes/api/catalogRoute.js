@@ -1,6 +1,7 @@
 // Express
-const express = require("express");
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
+const protect = require('../../middleware/authMiddleware')
 
 const {
   allListings,
@@ -8,13 +9,13 @@ const {
   createListing,
   updateListing,
   deleteListing,
-} = require("../../controller/catalogController");
+} = require('../../controller/catalogController')
 
-router.route("/").get(allListings).post(createListing);
+router.route('/').get(allListings).post(protect, createListing)
 router
-  .route("/:id")
+  .route('/:id')
   .get(singleListing)
-  .patch(updateListing)
-  .delete(deleteListing);
+  .patch(protect, updateListing)
+  .delete(protect, deleteListing)
 
-module.exports = router;
+module.exports = router
