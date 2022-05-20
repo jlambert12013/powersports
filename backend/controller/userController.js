@@ -71,7 +71,9 @@ const loginUser = asyncHandler(async (req, res) => {
 // @desc    Register New User
 // @route   POST /api/users/me
 // @access  Private
-const getMe = asyncHandler(async (req, res) => {});
+const getMe = asyncHandler(async (req, res, next) => {
+  res.json({ message: "Me" });
+});
 
 //  Genereate JWT
 const generateToken = (id) => {
