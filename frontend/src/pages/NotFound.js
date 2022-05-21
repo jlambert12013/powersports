@@ -1,4 +1,4 @@
 function NotFound() {
-  return <></>;
+  return <>Not Found</>
 }
-export default NotFound;
+export default NotFound

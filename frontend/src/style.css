@@ -1,7 +1,11 @@
-@import url("http://fonts.cdnfonts.com/css/montserrat?styles=17395,17389");
+@import url('http://fonts.cdnfonts.com/css/montserrat?styles=17395,17389');
 
 h4 {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 275;
   font-size: 1rem;
+}
+
+h1 {
+  font-size: 500px;
 }

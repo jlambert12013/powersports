@@ -43,6 +43,7 @@ mongo(URI)
 // Routes
 app.use('/api/catalog', require('./routes/api/catalogRoute'))
 app.use('/api/users', require('./routes/api/userRoute'))
+app.use('/api/users/dashboard', require('./routes/api/adminRoute'))
 
 app.use(errorHandler)
 

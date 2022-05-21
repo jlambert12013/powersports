@@ -1,4 +1,3 @@
-const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const asyncHandler = require('express-async-handler')
 const User = require('../models/User')
@@ -6,19 +5,21 @@ const generateToken = require('../utils/generateToken')
 
 // REGISTRATION - NEW USERS CONTROLLER - @route POST /api/users
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password } = req.body
+  const { firstName, lastName, email, password } = req.body
 
   if (!firstName || !lastName || !email || !password) {
     res.status(400)
-    throw new Error('Registration unsuccessful. Please fill out fields.')
+    throw new Error('Please include all fields.'.toUpperCase())
   }
 
-  // Check User Exists
+  // Check for Duplication
   const userExists = await User.findOne({ email })
 
   if (userExists) {
     res.status(400)
-    throw new Error('Email Already Registered.')
+    throw new Error(
+      `${email} is already in use. Please login or use a different email addess to sign up.`
+    )
   }
 
   // Hash Password using Bcrypt Salt
@@ -27,38 +28,40 @@ const registerUser = asyncHandler(async (req, res) => {
 
   // Create User
   const user = await User.create({
-    name,
+    firstName,
+    lastName,
     email,
     password: hashedPassword,
   })
 
+  // Store New User
   if (user) {
     res.status(201).json({
       _id: user.id,
-      name: user.name,
+      firstName: user.firstName,
+      lastName: user.lastName,
       email: user.email,
       token: generateToken(user._id),
     })
   } else {
     res.status(400)
-    throw new Error('Invalid User Data.')
+    throw new Error('Could not register user. Please try again later.')
   }
 })
 
-//  LOGIN CONTROLLER
-// @route   POST /api/users/login
+//  LOGIN CONTROLLER -  @route POST /api/users/login
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body
 
-  //  Check if email already exists
-  const user = await User.findOne({ email })
+  //
+  const userEmail = await User.findOne({ email })
 
-  if (user && (await bcrypt.compare(password, user.password))) {
+  if (userEmail && (await bcrypt.compare(password, userEmail.password))) {
     res.json({
-      _id: user.id,
-      name: user.name,
-      email: user.email,
-      token: generateToken(user._id),
+      _id: userEmail.id,
+      name: userEmail.name,
+      email: userEmail.email,
+      token: generateToken(userEmail._id),
     })
   } else {
     res.status(400)
@@ -66,16 +69,4 @@ const loginUser = asyncHandler(async (req, res) => {
   }
 })
 
-//  TESTING CONTROLLER
-// @route   POST /api/users/me
-const getMe = asyncHandler(async (req, res, next) => {
-  const { _id, name, email } = await User.findById(req.user.id)
-
-  res.status(200).json({
-    id: _id,
-    name,
-    email,
-  })
-})
-
-module.exports = { registerUser, loginUser, getMe }
+module.exports = { registerUser, loginUser }
