@@ -11,6 +11,12 @@ function Dashboard() {
       navigate('/login')
     }
   }, [user, navigate])
+
+  return (
+    <>
+      <h1 style={{ margin: '50%' }}>Dashboard</h1>
+    </>
+  )
 }
 
 export default Dashboard
